@@ -1,7 +1,7 @@
 document.getElementById('form').addEventListener('submit', function(e) {
   e.preventDefault();
-  const formData = new FormData(this);
-  fetch("https://script.google.com/macros/s/AKfycbyHqsb46_tHA_lFJOYxRRvmVRj0nBGRLc1qeAWt2ZWWS3vwigif_KXaHKuNNjI1AImxpQ/exec", {
+  const formData = new FormData(this);  
+  fetch("https://script.google.com/macros/s/AKfycbwBjRjlxRiZslDaAL1JS9pDN2LyMJ7-NBQk_P_ZvCOvWpxyEBojBidNW1_WbeY_znhkUA/exec", {
     method: "POST",
     body: formData
   })
