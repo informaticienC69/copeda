@@ -4,7 +4,7 @@ document.getElementById('form').addEventListener('submit', function(e) {
   const data = {};
   formData.forEach((value, key) => data[key] = value);
 
-  fetch("https://script.google.com/macros/s/AKfycbwh4z8-0U-j1s6izAqMsP-zuLwkzjmEiYKD1T5jaFfJbBu3uza1k_wBavJEa59otRq9/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzGXzuZm8n2XAu93n3ExqvidKqCWBXQEGz9ujz780czdh4gM3UudKADeriaKcnvls7D3g/exec", {
     method: "POST",
     body: JSON.stringify(data)
   })
