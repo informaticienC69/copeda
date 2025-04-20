@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consulter son parrain</title>
+  <script>
+    function consulterParrain() {
+      const email = document.getElementById('email').value;
+      fetch("https://script.google.com/macros/s/AKfycbyHqsb46_tHA_lFJOYxRRvmVRj0nBGRLc1qeAWt2ZWWS3vwigif_KXaHKuNNjI1AImxpQ/exec?email=" + encodeURIComponent(email)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('resultat').innerText =
+            data.parrain ? 'Votre parrain : ' + data.parrain : 'Aucun parrain attribué pour l’instant.';
+        });
+    }
+  </script>
+</head>
+<body>
+  <h2>Consulter son parrain</h2>
+  <input type="email" id="email" placeholder="Votre email"><br>
+  <button onclick="consulterParrain()">Vérifier</button>
+  <p id="resultat"></p>
+</body>
+</html>
