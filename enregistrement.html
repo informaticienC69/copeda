@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enregistrement</title>
+  <script src="script.js"></script>
+</head>
+<body>
+  <h2>Formulaire d'enregistrement</h2>
+  <form id="form">
+    <label>Nom : <input type="text" name="nom" required></label><br>
+    <label>Prénom : <input type="text" name="prenom" required></label><br>
+    <label>Téléphone : <input type="text" name="telephone" required></label><br>
+    <label>WhatsApp : <input type="text" name="whatsapp" required></label><br>
+    <label>Email : <input type="email" name="email" required></label><br>
+    <label>Rôle :
+      <select name="type" required>
+        <option value="parrain">Parrain</option>
+        <option value="filleul">Filleul</option>
+      </select>
+    </label><br>
+    <label>Filière :
+      <select name="filiere" required>
+        <option value="Telecom">Telecom</option>
+        <option value="Informatique">Informatique</option>
+        <option value="SRT">SRT</option>
+        <option value="GLSI">GLSI</option>
+      </select>
+    </label><br>
+    <button type="submit">Envoyer</button>
+  </form>
+</body>
+</html>
