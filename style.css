@@ -1,108 +1,47 @@
-/* Reset de base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Corps de la page */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #f8f9fa, #e9ecef);
-  color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-}
-
-/* Titres */
-h1, h2 {
-  color: #003366;
-  margin-bottom: 20px;
-}
-
-/* Liens boutons */
-a.button {
-  text-decoration: none;
-  background-color: #007bff;
-  color: white;
-  padding: 14px 28px;
-  margin: 10px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  display: inline-block;
-}
-
-a.button:hover {
-  background-color: #0056b3;
-}
-
-/* Formulaires */
-form {
-  background-color: white;
+  background-color: #f5f7fa;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 100%;
+}
+
+h2 {
+  color: #333;
+}
+
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
   max-width: 500px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 label {
   display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 10px;
+  color: #555;
 }
 
 input, select {
   width: 100%;
-  padding: 12px;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 5px;
 }
 
 button {
-  margin-top: 20px;
-  background-color: #28a745;
+  background-color: #0077cc;
   color: white;
+  padding: 10px 15px;
   border: none;
-  padding: 14px;
-  width: 100%;
-  font-size: 16px;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #218838;
+  background-color: #005fa3;
 }
 
-/* Messages d'erreur ou d'info */
-.message {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.message.success {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.message.error {
-  background-color: #f8d7da;
-  color: #721c24;
-}
-
-footer {
-  margin-top: auto;
-  padding: 20px;
-  font-size: 14px;
-  color: #666;
-}
