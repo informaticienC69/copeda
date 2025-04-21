@@ -1,5 +1,5 @@
 // URL de ton Web App Google Apps Script
-const BASE_URL = 'https://script.google.com/macros/s/AKfycbzgkMWB599KyeoAyHhkh-D6zB9LXgMSYbSjoRa5mZsd1nFs5U67XFBVCYBgs2Wt-y59/exec';
+const BASE_URL = 'https://script.google.com/macros/s/AKfycbzPjMd3Ao2cNhoNtu5U2NqhYH0qpI1AoVVZjfIoLlF8GPfs_MjD6QDhmh323ywhBKcy8w/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
   const typeSelect = document.getElementById('type');
