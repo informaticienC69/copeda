@@ -9,12 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     Filleul: ["SRT", "GLSI"]
   };
 
-  // Fonction pour mettre à jour les options de filière
   function updateFilieres() {
-    if (!typeSelect || !filiereSelect) return; // Sécurité si éléments absents
-
+    if (!typeSelect || !filiereSelect) return;
     const selectedType = typeSelect.value;
-    console.log("Type sélectionné :", selectedType);
     const options = filieres[selectedType] || [];
 
     filiereSelect.innerHTML = "";
@@ -26,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Enregistrement ---
+  // --- Enregistrement sans image ---
   const form = document.getElementById('enregistrement-form');
   if (form && typeSelect && filiereSelect) {
     updateFilieres();
@@ -35,32 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      const formData = new FormData(this);
-      const imageFile = formData.get('image');
-      const reader = new FileReader();
+      const formData = new FormData(form);
 
-      reader.onloadend = function() {
-        formData.append('imageBase64', reader.result.split(',')[1]);
-        formData.append('mimeType', imageFile.type);
-        formData.append('filename', imageFile.name);
-
-        fetch(BASE_URL, {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            alert('Enregistrement effectué avec succès!');
-            form.reset();
-            updateFilieres(); // Recharger les filières après reset
-          } else {
-            alert('Une erreur est survenue.');
-          }
-        });
-      };
-
-      reader.readAsDataURL(imageFile);
+      fetch(BASE_URL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('Enregistrement effectué avec succès!');
+          form.reset();
+          updateFilieres();
+        } else {
+          alert('Une erreur est survenue.');
+        }
+      });
     });
   }
 
@@ -74,12 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Filleul`)
         .then(response => response.json())
         .then(data => {
-          console.log("Réponse consultation Filleul :", data);
           if (data.nom) {
             document.getElementById('parrain-info').style.display = 'block';
             document.getElementById('parrain-nom').textContent = `Nom: ${data.nom} ${data.prenom}`;
             document.getElementById('parrain-whatsapp').textContent = `WhatsApp: ${data.whatsapp}`;
-            document.getElementById('parrain-photo').src = `${BASE_URL}?photoId=${data.photoId}`;
           } else {
             alert('Aucun parrain trouvé pour cet email.');
           }
@@ -97,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Parrain`)
         .then(response => response.json())
         .then(data => {
-          console.log("Réponse consultation Parrain :", data);
           if (data.filleuls && data.filleuls.length > 0) {
             const filleulsList = document.getElementById('filleuls-list');
             filleulsList.innerHTML = '';
@@ -106,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
               div.innerHTML = `
                 <p>${filleul.nom} ${filleul.prenom}</p>
                 <p>WhatsApp: ${filleul.whatsapp}</p>
-                <img src="${BASE_URL}?photoId=${filleul.photoId}" alt="Photo du Filleul">
               `;
               filleulsList.appendChild(div);
             });
