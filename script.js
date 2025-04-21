@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Filleul`)
         .then(response => response.json())
         .then(data => {
+          console.log("Réponse consultation Filleul :", data); // AJOUTE CETTE LIGNE
           if (data.nom) {
             document.getElementById('parrain-info').style.display = 'block';
             document.getElementById('parrain-nom').textContent = `Nom: ${data.nom} ${data.prenom}`;
@@ -94,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Parrain`)
         .then(response => response.json())
         .then(data => {
+          console.log("Réponse consultation Parrain :", data); // AJOUTE CETTE LIGNE
           if (data.filleuls && data.filleuls.length > 0) {
             const filleulsList = document.getElementById('filleuls-list');
             filleulsList.innerHTML = '';
