@@ -1,11 +1,12 @@
 // URL de ton Web App Google Apps Script
 const BASE_URL = 'https://script.google.com/macros/s/AKfycbylnrvabRRaeTRgWMDX6yygMPn8yii_V61odMYkEJ-6LwVQoNIDHZ55U-nKqVjeFx6k5Q/exec';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   const typeSelect = document.getElementById('type');
   const filiereSelect = document.getElementById('filiere');
 
   if (typeSelect && filiereSelect) {
+    // Fonction pour mettre à jour la liste des filières selon le type sélectionné
     const updateFiliere = () => {
       const selectedType = typeSelect.value;
       filiereSelect.innerHTML = '<option value="">-- Sélectionnez une filière --</option>';
@@ -19,11 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
 
+    // Écouter les changements du type (Parrain / Filleul)
     typeSelect.addEventListener('change', updateFiliere);
-    updateFiliere(); // Appel initial au chargement
-  }
 
-  // --- Enregistrement ---
+    // Mise à jour initiale au chargement de la page (au cas où la sélection est déjà faite)
+    updateFiliere();
+  }
+});
+
+    // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
       e.preventDefault();
