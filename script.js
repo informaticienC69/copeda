@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('mimeType', imageFile.type);
         formData.append('filename', imageFile.name);
 
-        fetch('https://script.google.com/macros/s/AKfycbwBjRjlxRiZslDaAL1JS9pDN2LyMJ7-NBQk_P_ZvCOvWpxyEBojBidNW1_WbeY_znhkUA/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbwsBv6sbBYO1soK_P_U4uguAjOe_L1ChyQCugDXVTyrr8pTqUBMfNVN_3zXN9OozBZ5pw/exec', {
           method: 'POST',
           body: formData
         })
