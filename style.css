@@ -1,12 +1,12 @@
-/* Style général */
+/* Fontes & base */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   background: #121212;
   color: #e0e0e0;
-  line-height: 1.5;
   font-size: 16px;
+  line-height: 1.5;
 }
 
 /* Header */
@@ -23,7 +23,6 @@ nav {
   background: #333;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 nav ul {
   list-style: none;
   padding: 0;
@@ -31,11 +30,9 @@ nav ul {
   justify-content: center;
   margin: 0;
 }
-
 nav li {
   margin: 0 15px;
 }
-
 nav a {
   color: #e0e0e0;
   text-decoration: none;
@@ -44,10 +41,42 @@ nav a {
   padding: 10px 15px;
   border-radius: 5px;
 }
-
 nav a:hover {
   background-color: #444;
   color: #ffffff;
+}
+
+/* Section message de la Présidente */
+.message-directrice {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 800px;
+  color: white;
+  font-size: 16px;
+  padding: 15px 20px;
+  line-height: 1.4;
+}
+.message-directrice h2 {
+  margin-bottom: 10px;
+}
+
+/* Photo centrée au-dessus du texte */
+.photo-presidente {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+/* Texte du message */
+.texte-message {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  padding: 0 10px;
 }
 
 /* Formulaire */
@@ -59,16 +88,13 @@ form {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
 label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
   font-size: 14px;
 }
-
-input,
-select {
+input, select {
   width: 100%;
   padding: 12px;
   margin: 8px 0 20px;
@@ -78,14 +104,12 @@ select {
   border-radius: 5px;
   font-size: 14px;
 }
-
-input:focus,
-select:focus {
+input:focus, select:focus {
   outline: none;
   border-color: #1e90ff;
 }
 
-/* Boutons */
+/* Bouton */
 button {
   background-color: #1e90ff;
   color: white;
@@ -97,35 +121,8 @@ button {
   font-size: 14px;
   transition: background-color 0.3s ease;
 }
-
 button:hover {
   background-color: #006fdc;
-}
-
-/* Message de la Présidente */
-
-.message-directrice {
-  text-align: center;
-  margin: 20px auto;
-  max-width: 800px;
-  color: white;
-  font-size: 16px;
-  padding: 15px 20px;
-  line-height: 1.4;
-}
-.photo-presidente-center {
-  width: 80px; /* Taille réduite */
-  height: 100px;
-  object-fit: cover;
-  border-radius: 9px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: block;
-  margin: 0 auto 10px auto;
-}
-.texte-message {
-  text-align: justify;
-  font-size: 14px;
-  line-height: 1.6;
 }
 
 /* Footer */
@@ -136,12 +133,10 @@ footer {
   font-size: 14px;
   color: #999;
 }
-
 footer a {
   color: #1e90ff;
   text-decoration: none;
 }
-
 footer a:hover {
   text-decoration: underline;
 }
