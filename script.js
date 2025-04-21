@@ -1,4 +1,4 @@
-// URL de ton Web App Google Apps Script
+// URL de ton Web App Google Apps Script
 const BASE_URL = 'https://script.google.com/macros/s/AKfycbylnrvabRRaeTRgWMDX6yygMPn8yii_V61odMYkEJ-6LwVQoNIDHZ55U-nKqVjeFx6k5Q/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,13 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     typeSelect.addEventListener('change', updateFiliere);
-    updateFiliere(); // <--- Appel initial dès le chargement
+    updateFiliere(); // Appel initial au chargement
   }
-});
 
-  // Force le déclenchement au chargement initial
-  typeSelect.dispatchEvent(new Event('change'));
-}
   // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
@@ -41,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('mimeType', imageFile.type);
         formData.append('filename', imageFile.name);
 
-        fetch(BASE_URL, { // POST vers BASE_URL
+        fetch(BASE_URL, {
           method: 'POST',
           body: formData
         })
@@ -72,9 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('parrain-info').style.display = 'block';
             document.getElementById('parrain-nom').textContent = `Nom: ${data.nom} ${data.prenom}`;
             document.getElementById('parrain-whatsapp').textContent = `WhatsApp: ${data.whatsapp}`;
-            // <- on utilise désormais photoId
-            document.getElementById('parrain-photo').src = 
-              `${BASE_URL}?photoId=${data.photoId}`;
+            document.getElementById('parrain-photo').src = `${BASE_URL}?photoId=${data.photoId}`;
           } else {
             alert('Aucun parrain trouvé pour cet email.');
           }
@@ -99,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
               div.innerHTML = `
                 <p>${filleul.nom} ${filleul.prenom}</p>
                 <p>WhatsApp: ${filleul.whatsapp}</p>
-                <!-- idem : on pointe vers ?photoId= -->
                 <img src="${BASE_URL}?photoId=${filleul.photoId}" alt="Photo du Filleul">
               `;
               filleulsList.appendChild(div);
@@ -112,4 +105,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-
