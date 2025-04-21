@@ -7,20 +7,23 @@ document.addEventListener('DOMContentLoaded', function() {
   const typeSelect = document.getElementById('type');
   const filiereSelect = document.getElementById('filiere');
 
-  if (typeSelect && filiereSelect) {
-    typeSelect.addEventListener('change', function () {
-      const selectedType = this.value;
-      filiereSelect.innerHTML = '<option value="">-- Sélectionnez une filière --</option>'; // Réinitialise
+ if (typeSelect && filiereSelect) {
+  typeSelect.addEventListener('change', function () {
+    const selectedType = this.value;
+    filiereSelect.innerHTML = '<option value="">-- Sélectionnez une filière --</option>'; // Réinitialise
 
-      if (selectedType === 'Filleul') {
-        filiereSelect.innerHTML += '<option value="SRT">SRT</option>';
-        filiereSelect.innerHTML += '<option value="GLSI">GLSI</option>';
-      } else if (selectedType === 'Parrain') {
-        filiereSelect.innerHTML += '<option value="Telecom">Telecom</option>';
-        filiereSelect.innerHTML += '<option value="Informatique">Informatique</option>';
-      }
-    });
-  }
+    if (selectedType === 'Filleul') {
+      filiereSelect.innerHTML += '<option value="SRT">SRT</option>';
+      filiereSelect.innerHTML += '<option value="GLSI">GLSI</option>';
+    } else if (selectedType === 'Parrain') {
+      filiereSelect.innerHTML += '<option value="Telecom">Telecom</option>';
+      filiereSelect.innerHTML += '<option value="Informatique">Informatique</option>';
+    }
+  });
+
+  // Force le déclenchement au chargement initial
+  typeSelect.dispatchEvent(new Event('change'));
+}
   // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
