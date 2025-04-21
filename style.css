@@ -114,10 +114,10 @@ button:hover {
   line-height: 1.4;
 }
 .photo-presidente-center {
-  width: 100px; /* Taille réduite */
+  width: 80px; /* Taille réduite */
   height: 100px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 9px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: block;
   margin: 0 auto 10px auto;
