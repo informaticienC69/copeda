@@ -1,4 +1,3 @@
-// URL de ton Web App Google Apps Script
 const BASE_URL = 'https://script.google.com/macros/s/AKfycbzPjMd3Ao2cNhoNtu5U2NqhYH0qpI1AoVVZjfIoLlF8GPfs_MjD6QDhmh323ywhBKcy8w/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fonction pour mettre à jour les options de filière
   function updateFilieres() {
+    if (!typeSelect || !filiereSelect) return; // Sécurité si éléments absents
+
     const selectedType = typeSelect.value;
     console.log("Type sélectionné :", selectedType);
     const options = filieres[selectedType] || [];
@@ -26,10 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Enregistrement ---
-  if (document.getElementById('enregistrement-form')) {
-     updateFilieres();
-     typeSelect.addEventListener('change', updateFilieres);
-     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
+  const form = document.getElementById('enregistrement-form');
+  if (form && typeSelect && filiereSelect) {
+    updateFilieres();
+    typeSelect.addEventListener('change', updateFilieres);
+
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
 
       const formData = new FormData(this);
@@ -49,10 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           if (data.success) {
             alert('Enregistrement effectué avec succès!');
-            
-            // Vider les champs du formulaire après l'enregistrement
-            document.getElementById('enregistrement-form').reset();
-            updateFilieres(); // Réinitialiser les options de filière
+            form.reset();
+            updateFilieres(); // Recharger les filières après reset
           } else {
             alert('Une erreur est survenue.');
           }
@@ -63,16 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Consultation Filleul (affiche le parrain) ---
-  if (document.getElementById('consultationfi-form')) {
-    document.getElementById('consultationfi-form').addEventListener('submit', function(e) {
+  // --- Consultation Filleul ---
+  const consultFiForm = document.getElementById('consultationfi-form');
+  if (consultFiForm) {
+    consultFiForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
       const email = document.getElementById('email').value;
       fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Filleul`)
         .then(response => response.json())
         .then(data => {
-          console.log("Réponse consultation Filleul :", data); // AJOUTE CETTE LIGNE
+          console.log("Réponse consultation Filleul :", data);
           if (data.nom) {
             document.getElementById('parrain-info').style.display = 'block';
             document.getElementById('parrain-nom').textContent = `Nom: ${data.nom} ${data.prenom}`;
@@ -85,16 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Consultation Parrain (affiche les filleuls) ---
-  if (document.getElementById('consultationP-form')) {
-    document.getElementById('consultationP-form').addEventListener('submit', function(e) {
+  // --- Consultation Parrain ---
+  const consultPForm = document.getElementById('consultationP-form');
+  if (consultPForm) {
+    consultPForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
       const email = document.getElementById('email').value;
       fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Parrain`)
         .then(response => response.json())
         .then(data => {
-          console.log("Réponse consultation Parrain :", data); // AJOUTE CETTE LIGNE
+          console.log("Réponse consultation Parrain :", data);
           if (data.filleuls && data.filleuls.length > 0) {
             const filleulsList = document.getElementById('filleuls-list');
             filleulsList.innerHTML = '';
@@ -114,4 +117,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
-}); // ← On ferme ici le document.addEventListener
+});
