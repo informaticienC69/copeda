@@ -1,4 +1,4 @@
-const BASE_URL = 'https://script.google.com/macros/s/AKfycbyds8IEZ0wJpUEVaaQUgDP-dDuZA90nS78fJvf8j2UOOWtwbMVTiezhME3Q1eoczQXS/exec';
+const BASE_URL = 'https://script.google.com/macros/s/AKfycbxUw2LAhw3Q1ci8QjbZ-o8wdLwQhED3fVWADEPfpWsAc27JMV30qHFvnff4lkanHw3VSA/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
   const typeSelect = document.getElementById('type');
