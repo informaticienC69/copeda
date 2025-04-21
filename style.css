@@ -62,8 +62,8 @@ nav a:hover {
 
 /* Photo centrée au-dessus du texte */
 .photo-presidente {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
