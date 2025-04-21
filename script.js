@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fonction pour mettre à jour les options de filière
   function updateFilieres() {
     const selectedType = typeSelect.value;
+     console.log("Type sélectionné :", selectedType); // ✅ AJOUTE ÇA POUR TESTE
     const options = filieres[selectedType] || [];
 
     // On vide les anciennes options
