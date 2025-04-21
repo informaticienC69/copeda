@@ -1,5 +1,8 @@
+// URL de ton Web App Google Apps Script
+const BASE_URL = 'https://script.google.com/macros/s/AKfycbylnrvabRRaeTRgWMDX6yygMPn8yii_V61odMYkEJ-6LwVQoNIDHZ55U-nKqVjeFx6k5Q/exec';
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Enregistrement
+  // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -13,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('mimeType', imageFile.type);
         formData.append('filename', imageFile.name);
 
-        fetch('https://script.google.com/macros/s/AKfycbwsBv6sbBYO1soK_P_U4uguAjOe_L1ChyQCugDXVTyrr8pTqUBMfNVN_3zXN9OozBZ5pw/exec', {
+        fetch(BASE_URL, { // POST vers BASE_URL
           method: 'POST',
           body: formData
         })
@@ -31,20 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Consultation Filleul
+  // --- Consultation Filleul (affiche le parrain) ---
   if (document.getElementById('consultationfi-form')) {
     document.getElementById('consultationfi-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const email = document.getElementById('email').value;
-      fetch(`https://script.google.com/macros/s/AKfycbwsBv6sbBYO1soK_P_U4uguAjOe_L1ChyQCugDXVTyrr8pTqUBMfNVN_3zXN9OozBZ5pw/exec?email=${email}&role=Filleul`)
+      fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Filleul`)
         .then(response => response.json())
         .then(data => {
           if (data.nom) {
             document.getElementById('parrain-info').style.display = 'block';
             document.getElementById('parrain-nom').textContent = `Nom: ${data.nom} ${data.prenom}`;
             document.getElementById('parrain-whatsapp').textContent = `WhatsApp: ${data.whatsapp}`;
-            document.getElementById('parrain-photo').src = data.photo;
+            // <- on utilise désormais photoId
+            document.getElementById('parrain-photo').src = 
+              `${BASE_URL}?photoId=${data.photoId}`;
           } else {
             alert('Aucun parrain trouvé pour cet email.');
           }
@@ -52,13 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Consultation Parrain
+  // --- Consultation Parrain (affiche les filleuls) ---
   if (document.getElementById('consultationP-form')) {
     document.getElementById('consultationP-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const email = document.getElementById('email').value;
-      fetch(`https://script.google.com/macros/s/AKfycbwsBv6sbBYO1soK_P_U4uguAjOe_L1ChyQCugDXVTyrr8pTqUBMfNVN_3zXN9OozBZ5pw/exec?email=${email}&role=Parrain`)
+      fetch(`${BASE_URL}?email=${encodeURIComponent(email)}&role=Parrain`)
         .then(response => response.json())
         .then(data => {
           if (data.filleuls && data.filleuls.length > 0) {
@@ -69,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
               div.innerHTML = `
                 <p>${filleul.nom} ${filleul.prenom}</p>
                 <p>WhatsApp: ${filleul.whatsapp}</p>
-                <img src="${filleul.photo}" alt="Photo du Filleul">
+                <!-- idem : on pointe vers ?photoId= -->
+                <img src="${BASE_URL}?photoId=${filleul.photoId}" alt="Photo du Filleul">
               `;
               filleulsList.appendChild(div);
             });
