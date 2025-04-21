@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Consultation Parrain (affiche les filleuls) ---
+    // --- Consultation Parrain (affiche les filleuls) ---
   if (document.getElementById('consultationP-form')) {
     document.getElementById('consultationP-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -116,5 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
     });
-  }
-}
+  } // ✅ ← C'est ici que le dernier `if` se ferme
+
+}); // ✅ ← Et ici, on ferme le `DOMContentLoaded`
