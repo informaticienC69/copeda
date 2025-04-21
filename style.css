@@ -103,6 +103,7 @@ button:hover {
 }
 
 /* Message de la Présidente */
+
 .message-directrice {
   text-align: center;
   margin: 20px auto;
@@ -112,17 +113,15 @@ button:hover {
   padding: 15px 20px;
   line-height: 1.4;
 }
-
 .photo-presidente-center {
-  width: 130px;
-  height: 130px;
+  width: 100px; /* Taille réduite */
+  height: 100px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: block;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 10px auto;
 }
-
 .texte-message {
   text-align: justify;
   font-size: 14px;
