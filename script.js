@@ -25,12 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  updateFilieres();
-  typeSelect.addEventListener('change', updateFilieres);
-
   // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
-    document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
+     updateFilieres();
+     typeSelect.addEventListener('change', updateFilieres);
+     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
       const formData = new FormData(this);
