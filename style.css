@@ -1,31 +1,6 @@
 /* Style général */
 body {
   font-family: 'Poppins', sans-serif;
-}
-
-.message-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  margin-top: 20px;
-  justify-content: center; /* Centrer l'alignement du texte et de l'image */
-}
-
-.photo-presidente {
-  width: 100px; /* Taille fixe de l'image (réduite) */
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.texte-message {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background: #121212;
@@ -75,7 +50,63 @@ nav a:hover {
   color: #ffffff;
 }
 
-/* Formulaire */
+/* Section message */
+.message-directrice {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.message-directrice h2 {
+  margin-bottom: 20px;
+}
+
+/* Conteneur message + image */
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Image de la présidente */
+.photo-presidente {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Texte */
+.texte-message {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+/* Responsive pour grands écrans */
+@media (min-width: 768px) {
+  .message-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .photo-presidente {
+    flex-shrink: 0;
+  }
+
+  .texte-message {
+    flex: 1;
+    max-width: 700px;
+  }
+}
+
+/* Formulaires (optionnel pour autres pages) */
 form {
   margin: 20px auto;
   padding: 30px;
@@ -120,37 +151,11 @@ button {
   font-size: 14px;
   transition: background-color 0.3s ease;
 }
-
 button:hover {
   background-color: #006fdc;
 }
 
-/* Message de la Présidente */
-.message-directrice {
-  text-align: center;
-  margin: 20px auto;
-  max-width: 800px;
-  color: white;
-  font-size: 16px;
-  padding: 15px 20px;
-  line-height: 1.4;
-}
-
-.message-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.texte-message {
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 600px;
-  text-align: justify;
-}
-
-/* Pied de page pour le support technique */
+/* Footer */
 footer {
   text-align: center;
   margin-top: 40px;
@@ -158,37 +163,10 @@ footer {
   font-size: 14px;
   color: #999;
 }
-
 footer a {
   color: #1e90ff;
   text-decoration: none;
 }
-
 footer a:hover {
   text-decoration: underline;
-}
-
-/* Adaptation mobile */
-@media (max-width: 768px) {
-  .message-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .photo-presidente {
-    width: 120px; /* Taille plus petite pour mobile */
-    height: 120px;
-  }
-
-  .texte-message {
-    font-size: 12px;
-  }
-
-  nav ul {
-    flex-direction: column;
-  }
-
-  nav li {
-    margin: 10px 0;
-  }
 }
