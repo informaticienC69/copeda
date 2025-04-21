@@ -2,6 +2,25 @@
 const BASE_URL = 'https://script.google.com/macros/s/AKfycbylnrvabRRaeTRgWMDX6yygMPn8yii_V61odMYkEJ-6LwVQoNIDHZ55U-nKqVjeFx6k5Q/exec';
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Dynamiser le champ "Filière" selon le type choisi
+  const typeSelect = document.getElementById('type');
+  const filiereSelect = document.getElementById('filiere');
+
+  if (typeSelect && filiereSelect) {
+    typeSelect.addEventListener('change', function () {
+      const selectedType = this.value;
+      filiereSelect.innerHTML = '<option value="">-- Sélectionnez une filière --</option>'; // Réinitialise
+
+      if (selectedType === 'Filleul') {
+        filiereSelect.innerHTML += '<option value="SRT">SRT</option>';
+        filiereSelect.innerHTML += '<option value="GLSI">GLSI</option>';
+      } else if (selectedType === 'Parrain') {
+        filiereSelect.innerHTML += '<option value="Telecom">Telecom</option>';
+        filiereSelect.innerHTML += '<option value="Informatique">Informatique</option>';
+      }
+    });
+  }
   // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
