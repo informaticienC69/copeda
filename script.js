@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
 
       const email = document.getElementById('email').value;
-      fetch(`https://script.google.com/macros/s/AKfycbwBjRjlxRiZslDaAL1JS9pDN2LyMJ7-NBQk_P_ZvCOvWpxyEBojBidNW1_WbeY_znhkUA/exec?email=${email}&role=Filleul`)
+      fetch(`https://script.google.com/macros/s/AKfycbwsBv6sbBYO1soK_P_U4uguAjOe_L1ChyQCugDXVTyrr8pTqUBMfNVN_3zXN9OozBZ5pw/exec?email=${email}&role=Filleul`)
         .then(response => response.json())
         .then(data => {
           if (data.nom) {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
 
       const email = document.getElementById('email').value;
-      fetch(`https://script.google.com/macros/s/AKfycbwBjRjlxRiZslDaAL1JS9pDN2LyMJ7-NBQk_P_ZvCOvWpxyEBojBidNW1_WbeY_znhkUA/exec?email=${email}&role=Parrain`)
+      fetch(`https://script.google.com/macros/s/AKfycbwsBv6sbBYO1soK_P_U4uguAjOe_L1ChyQCugDXVTyrr8pTqUBMfNVN_3zXN9OozBZ5pw/exec?email=${email}&role=Parrain`)
         .then(response => response.json())
         .then(data => {
           if (data.filleuls && data.filleuls.length > 0) {
