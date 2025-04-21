@@ -13,13 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fonction pour mettre à jour les options de filière
   function updateFilieres() {
     const selectedType = typeSelect.value;
-     console.log("Type sélectionné :", selectedType); // ✅ AJOUTE ÇA POUR TESTE
+    console.log("Type sélectionné :", selectedType);
     const options = filieres[selectedType] || [];
 
-    // On vide les anciennes options
     filiereSelect.innerHTML = "";
-
-    // On ajoute les nouvelles options
     options.forEach(f => {
       const option = document.createElement('option');
       option.value = f;
@@ -28,15 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mise à jour initiale au chargement de la page
   updateFilieres();
-
-  // Mise à jour à chaque changement de type
   typeSelect.addEventListener('change', updateFilieres);
-});
 
-
-    // --- Enregistrement ---
+  // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
     document.getElementById('enregistrement-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -90,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Consultation Parrain (affiche les filleuls) ---
-    // --- Consultation Parrain (affiche les filleuls) ---
   if (document.getElementById('consultationP-form')) {
     document.getElementById('consultationP-form').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -117,6 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
     });
-  } // ✅ ← C'est ici que le dernier `if` se ferme
-
-}); // ✅ ← Et ici, on ferme le `DOMContentLoaded`
+  }
+}); // ← On ferme ici le document.addEventListener
