@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
           form.reset();
           updateFilieres();
         } else {
-          alert('Une erreur est survenue.');
+          alert('Cet email est déjà inscrit, et votre nom existe dans la base');
         }
       });
     });
