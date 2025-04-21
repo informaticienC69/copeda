@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           if (data.success) {
             alert('Enregistrement effectué avec succès!');
+            
+            // Vider les champs du formulaire après l'enregistrement
+            document.getElementById('enregistrement-form').reset();
+            updateFilieres(); // Réinitialiser les options de filière
           } else {
             alert('Une erreur est survenue.');
           }
