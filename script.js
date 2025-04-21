@@ -5,28 +5,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const typeSelect = document.getElementById('type');
   const filiereSelect = document.getElementById('filiere');
 
-  if (typeSelect && filiereSelect) {
-    // Fonction pour mettre à jour la liste des filières selon le type sélectionné
-    const updateFiliere = () => {
-      const selectedType = typeSelect.value;
-      filiereSelect.innerHTML = '<option value="">-- Sélectionnez une filière --</option>';
+  const filieres = {
+    Parrain: ["Telecom", "Informatique"],
+    Filleul: ["SRT", "GLSI"]
+  };
 
-      if (selectedType === 'Filleul') {
-        filiereSelect.innerHTML += '<option value="SRT">SRT</option>';
-        filiereSelect.innerHTML += '<option value="GLSI">GLSI</option>';
-      } else if (selectedType === 'Parrain') {
-        filiereSelect.innerHTML += '<option value="Telecom">Telecom</option>';
-        filiereSelect.innerHTML += '<option value="Informatique">Informatique</option>';
-      }
-    };
+  // Fonction pour mettre à jour les options de filière
+  function updateFilieres() {
+    const selectedType = typeSelect.value;
+    const options = filieres[selectedType] || [];
 
-    // Écouter les changements du type (Parrain / Filleul)
-    typeSelect.addEventListener('change', updateFiliere);
+    // On vide les anciennes options
+    filiereSelect.innerHTML = "";
 
-    // Mise à jour initiale au chargement de la page (au cas où la sélection est déjà faite)
-    updateFiliere();
+    // On ajoute les nouvelles options
+    options.forEach(f => {
+      const option = document.createElement('option');
+      option.value = f;
+      option.textContent = f;
+      filiereSelect.appendChild(option);
+    });
   }
+
+  // Mise à jour initiale au chargement de la page
+  updateFilieres();
+
+  // Mise à jour à chaque changement de type
+  typeSelect.addEventListener('change', updateFilieres);
 });
+
 
     // --- Enregistrement ---
   if (document.getElementById('enregistrement-form')) {
