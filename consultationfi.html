@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Je suis Un Filleul Je consulte MOn Parrain</title>
+  <title>Je suis Un Filleul - Je consulte Mon Parrain</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Consultation de votre Parrain</h1>
   </header>
+
   <form id="consultationfi-form">
     <label for="email">Email</label>
     <input type="email" id="email" name="email" required><br>
 
-    <button type="submit">Consulter</button>
+    <button type="submit" id="consult-btn">Consulter</button>
+    <div id="loading-indicator" style="display: none;">Chargement...</div>
   </form>
 
-  <div id="parrain-info" style="display:none;">
-    <h2>Voici les Informations de votre Parrain faite une capture de ce message. Envoi un Message à Votre Parrain</h2>
+  <div id="parrain-info" style="display: none;">
+    <h2>Voici les Informations de votre Parrain. <br> Faites une capture de ce message et envoyez-lui un message.</h2>
     <p id="parrain-nom"></p>
     <p id="parrain-whatsapp"></p>
   </div>
@@ -26,3 +28,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
