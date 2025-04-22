@@ -1,11 +1,11 @@
-const BASE_URL = 'https://script.google.com/macros/s/AKfycbyat3cEizXl358TbVRzbdiuj5qq8t58sEGloIkrSAnrazo3LXQX6juzxDAUgCZcGM-g5w/exec';
+const BASE_URL = 'https://script.google.com/macros/s/AKfycbzeplZbvVKYZXYJ4uO41N_cUuy7uGeaRO6cKxwmDmgCL2HipOGeKNHqXf8dCvKuO9SfRg/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
   const typeSelect = document.getElementById('type');
   const filiereSelect = document.getElementById('filiere');
 
   const filieres = {
-    Parrain: ["Telecom", "Informatique"],-
+    Parrain: ["Telecom", "Informatique"],
     Filleul: ["SRT", "GLSI"]
   };
 
