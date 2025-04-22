@@ -10,6 +10,7 @@
   <header>
     <h1>Enregistrement</h1>
   </header>
+
   <form id="enregistrement-form">
     <label for="nom">Nom</label>
     <input type="text" id="nom" name="nom" required><br>
@@ -37,9 +38,11 @@
       <!-- options générées dynamiquement -->
     </select><br>
 
-    <button type="submit">Envoyer</button>
+    <button type="submit" id="submit-btn">Envoyer</button>
+    <div id="loading-indicator" style="display: none;">Chargement...</div> <!-- Ajout d'un indicateur de chargement -->
   </form>
 
   <script src="script.js"></script>
 </body>
 </html>
+
