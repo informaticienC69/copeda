@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('parrain-nom').textContent = `Nom: ${data.nom} ${data.prenom}`;
             document.getElementById('parrain-whatsapp').textContent = `WhatsApp: ${data.whatsapp}`;
           } else {
-            alert('Aucun parrain trouvé pour cet email.');
+            alert('Aucun parrain trouvé pour cet email revenez plus tard.');
           }
         })
         .catch(() => alert("Erreur lors de la consultation"))
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             document.getElementById('filleuls-info').style.display = 'block';
           } else {
-            alert('Aucun filleul trouvé pour cet email.');
+            alert('Aucun filleul disponible! Vous pouvez revenir plus tard.');
           }
         })
         .catch(() => alert("Erreur lors de la consultation"))
